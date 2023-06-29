@@ -1,7 +1,8 @@
 /** Returns a randomly selected item from array of fruits */
 
 function choice(items) {
-
+    let idx = Math.floor(Math.random() * items.length);
+    return items[idx];
 }
 
 
@@ -11,6 +12,12 @@ function choice(items) {
  * 
 */
 
-function remove(items, item) {
-
+function remove(item, items) {
+    for (let i = 0; i < items.length; i++) {
+        if (items[i] === item) {
+            return [...items.slice(0, 1), ...items.slice(i + 1)]
+        }
+    }
 }
+
+export { choice, remove }
